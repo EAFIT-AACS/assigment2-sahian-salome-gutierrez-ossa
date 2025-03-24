@@ -54,7 +54,7 @@ Its main function is to create examples of valid and invalid strings that will l
 
 How does it work?
 
-generateStrings() Method
+generarStrings() Method
 This is the main method of the algorithm. It contains:
 
 stringsValid: to store valid strings.
