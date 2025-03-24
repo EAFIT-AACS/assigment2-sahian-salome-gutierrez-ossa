@@ -81,7 +81,7 @@ If the string does not follow these rules, it is stored in stringsInvalid.
 It takes each string (valid and invalid) and checks if it belongs to the language, using a stack automaton.
 
 How does it work?
-Method processStrings(List<String> strings)
+Method procesar(String input)
 This method processes all strings (valid and invalid) using an automaton.
 
 For each string:
@@ -116,11 +116,11 @@ a and b are terminal symbols (the only ones that can appear in the input string)
 Initialization of the algorithm
 
 -A Stack is created that initially contains only the symbol S.
--A list (rowsTable) is used to record each step of the process.
+-A list (filasTabla) is used to record each step of the process.
 -The input string is displayed before starting.
 
 
-Bypass processing using the stack
+The stack
 
 -Processing occurs inside a while loop, which is executed as long as the stack is not empty. At each iteration:
 -The symbol at the top of the stack is popped (Stack.pop()).
