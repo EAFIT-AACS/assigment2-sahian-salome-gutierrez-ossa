@@ -32,17 +32,15 @@ Paradigm: Object-oriented programming.
 Visual Studio Code (VSCode)
 Extensions used: Extension Pack for Java
 
-JDK (Java Development Kit):
+3. JDK (Java Development Kit):
 Required to compile and run the .java files.
 
-4.Terminal / Console:
+4. Terminal / Console:
 Terminal integrated in Visual Studio Code.
-
 Configured to support Unicode characters and ANSI colors, allowing to display tables and emojis correctly.
 Alternative: View it in replit
 
 5.ANSI Escape Codes:
-
 Used for: Coloring text 
 Draw tables with borders using Unicode characters.
 
