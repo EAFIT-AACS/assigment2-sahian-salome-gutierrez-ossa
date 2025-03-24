@@ -220,6 +220,8 @@ The function imprimirTabla(filasTabla) is called, generating a table with three 
 ![image](https://github.com/user-attachments/assets/0b5895b1-6ecc-4379-9b68-22562e8a47e6)
 ![image](https://github.com/user-attachments/assets/0b65c3b8-a0c6-48e5-b8be-fcb7b3ae7329)
 ![image](https://github.com/user-attachments/assets/2eda9d48-71b0-4fd4-acd2-821dd54d46cc)
+![image](https://github.com/user-attachments/assets/e333974d-05ea-4410-bbac-54531a06f833)
+
 
 
 
