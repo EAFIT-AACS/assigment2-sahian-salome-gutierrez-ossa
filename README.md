@@ -76,8 +76,6 @@ Before saving it, it is checked for validity using the method isValidString(Stri
 This method counts how many 'a's and 'b's there are.It checks that the 'a's go first, that there are the same number of 'a's and 'b's, and that a 'b' does not appear before an 'a'.
 If the string does not meet these rules, it is stored in stringsInvalid.
 
-Result return:
-The method returns an array containing both lists (valid and invalid).
 
 # Algorithm 2
 It takes each string (valid and invalid) and checks if it belongs to the language, using a stack automaton.
