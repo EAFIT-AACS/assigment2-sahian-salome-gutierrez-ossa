@@ -214,3 +214,6 @@ The function imprimirTabla(filasTabla) is called, generating a table with three 
 -Sentential Form (how the string evolves)
 
 -Automaton Configuration (q, input, stack)
+
+![image](https://github.com/user-attachments/assets/0b5895b1-6ecc-4379-9b68-22562e8a47e6)
+
