@@ -32,17 +32,15 @@ Paradigm: Object-oriented programming.
 Visual Studio Code (VSCode)
 Extensions used: Extension Pack for Java
 
-JDK (Java Development Kit):
+3.JDK (Java Development Kit):
 Required to compile and run the .java files.
 
 4.Terminal / Console:
 Terminal integrated in Visual Studio Code.
-
 Configured to support Unicode characters and ANSI colors, allowing to display tables and emojis correctly.
 Alternative: View it in replit
 
 5.ANSI Escape Codes:
-
 Used for: Coloring text 
 Draw tables with borders using Unicode characters.
 
@@ -51,30 +49,32 @@ Draw tables with borders using Unicode characters.
 
 The program I have developed simulates a formal language based on strings that have an equal number of 'a' symbols followed by the same number of 'b' symbols, and works with a stack automaton (PDA) to process them and generate derivation trees for those accepted strings. It is divided into three main algorithms, each with a specific function:
 
-# Algorithm 1: Generation of valid and invalid strings
-Its main function is to create examples of valid and invalid strings that will later be the input of the automaton (here their acceptance or rejection will be evaluated).
+# Algorithm 1: Generation of Valid and Invalid Strings
+Its main function is to create examples of valid and invalid strings that will later be used as input to the automaton (here their acceptance or rejection will be evaluated).
 
 How does it work?
 
-Method generateStrings()
-This is the main method of the algorithm. Inside it:
+generateStrings() Method
+This is the main method of the algorithm. It contains:
 
-Two lists are initialized:
 stringsValid: to store valid strings.
 stringsInvalid: to store invalid strings.
 
-Generation of valid strings:
-A loop is used that generates 5 valid strings.
+It has 2 presentations.
+
+Generation of Valid Strings:
+A loop is used to generate 5 valid strings.
 A random number n between 0 and 7 is chosen.
-A string is created that has exactly n letters 'a' followed by n letters 'b'.
+A string is created that has exactly n letters "a" followed by n letters "b".
 The string is added to validStrings.
 
-Generation of invalid strings:
-Here also 5 strings are generated.
-A sequence of 'a' and 'b' of length between 1 and 10 is randomly generated.
-Before saving it, it is checked for validity using the method isValidString(String string string):
-This method counts how many 'a's and 'b's there are.It checks that the 'a's go first, that there are the same number of 'a's and 'b's, and that a 'b' does not appear before an 'a'.
-If the string does not meet these rules, it is stored in stringsInvalid.
+Generation of Invalid Strings:
+Five strings are also generated here.
+A sequence of "a"s and "b"s with a length between 1 and 10 is randomly generated.
+
+Before saving it, its validity is checked using the isValidString(String string string) method:
+This method counts how many 'a's and 'b's there are. It checks that the 'a's come first, that there are the same number of 'a's and 'b's, and that a 'b' does not appear before an 'a'.
+If the string does not follow these rules, it is stored in stringsInvalid.
 
 
 # Algorithm 2
