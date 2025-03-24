@@ -32,15 +32,17 @@ Paradigm: Object-oriented programming.
 Visual Studio Code (VSCode)
 Extensions used: Extension Pack for Java
 
-3. JDK (Java Development Kit):
+JDK (Java Development Kit):
 Required to compile and run the .java files.
 
-4. Terminal / Console:
+4.Terminal / Console:
 Terminal integrated in Visual Studio Code.
+
 Configured to support Unicode characters and ANSI colors, allowing to display tables and emojis correctly.
 Alternative: View it in replit
 
 5.ANSI Escape Codes:
+
 Used for: Coloring text 
 Draw tables with borders using Unicode characters.
 
@@ -108,22 +110,107 @@ Before explaining the algorithm, it is worth mentioning that we have to make the
 4. B → b    (q,b,B)→(q,ε)
 5. S-> ε    (q,ε,ε)→(q,ε)    (Empty string: it is allowed because S is the inicial symbol)
 
-The algorithm starts by initializing a stack (Stack<Character) with the initial symbol S, representing the starting point of the derivation. In addition, it uses a List<String[]> rowsTable)list to record each step of the process, allowing to visualize how the derivation evolves from the initial sentential form to its possible acceptance. The input string is displayed before starting the table, handling the special case of an empty string by representing it with ε.
+S is the initial symbol.
+X and B are non-terminal symbols.
+a and b are terminal symbols (the only ones that can appear in the input string).
+ε represents the empty string.
 
-String processing occurs inside a while loop, which continues to execute as long as the stack is not empty. At each iteration, the symbol at the top of the stack is extracted (Stack.pop()) and its value is evaluated to determine which production rule to apply. Four derivation rules have been defined:
+Initialization of the algorithm
 
-Rule 1: S → aX
-If the symbol at the top of the stack is S and the first character of the string is a, S is replaced by aX, removing a from the string and stacking X. This step is recorded in the table.
+-A Stack is created that initially contains only the symbol S.
+-A list (rowsTable) is used to record each step of the process.
+-The input string is displayed before starting.
 
-Rule 2: X → aXB
-If the top is X and the chain starts with a, X is replaced by aXB, removing a from the chain and stacking X and B.
 
-Rule 3: X → b
-If the top is X and the chain starts with b, X is replaced by b and moves forward in the chain without stacking new symbols.
+Bypass processing using the stack
 
-Rule 4: B → b
-If the top is B and the next character is b, B is replaced by b, and the string is advanced in the chain without stacking new symbols.
+-Processing occurs inside a while loop, which is executed as long as the stack is not empty. At each iteration:
+-The symbol at the top of the stack is popped (Stack.pop()).
+-Check which production to apply based on the extracted symbol and the first character of the input string.
+-The stack and the input string are updated according to the applied rule.
+-The step is recorded in the table.
+   
+Key Definitions
 
-The process continues until the stack is empty or no further valid derivation can be performed. If at the end the stack and the string are empty, the input is considered to be accepted and the table is printed with the steps followed, using the method printTable List<String[]> rows.
+Sentential Form: Represents the evolution of the string according to the grammar's production rules.
 
-Finally, if the string has been accepted, a confirmation message is displayed. Otherwise, a rejection message is displayed.
+Automaton Configuration (M): Represents the state of the automaton at any given time, in the format:
+
+(𝑞, remaining input,stack)
+
+Where:
+q → Current state
+remaining input → The symbols still to be processed in the string.
+stack → The symbols on the stack.
+
+# Rule 1:
+S→aX
+If the stack has S at the top and the first symbol in the input string is a, we apply this rule.
+
+Sentential Form: S is replaced by aX, which means that the string being built now starts with a and the rest will be derived from X.
+
+Automaton Configuration:
+Before:
+(𝑞,𝑎α,𝑆) S is at the top and the input is a followed by more symbols (𝛼).
+After:
+(𝑞,α,𝑋) We consume a and S is replaced by X on the stack.
+
+# Rule 2:
+X → aXB
+If X is at the top and the input string starts with a, we apply this rule.
+
+Sentential Form:
+X is replaced by aXB, indicating that the string's structure will require a b in the future to balance the a we just consumed.
+
+Automaton Configuration:
+Before: (q, aα, X) X is on the stack and a is the next symbol in the input.
+After: (q, α, XB) a is consumed from the input and XB is pushed onto the stack.
+
+# Rule 3:
+X → b
+If X is at the top of the stack and the input string has b, we apply this rule.
+
+Sentential Form:
+
+X is replaced by b, which means we have reached the transition point where the as have ended and the bs begin.
+
+Automaton Configuration:
+Before: (q, bα, X)  X is on the stack and the first symbol in the input string is b.
+After: (q, α, ε) We consume b from the input and remove X from the stack.
+
+# Rule 4:
+B → b
+When B is at the top of the stack and the input string has b, we apply this rule.
+
+Sentential Form:
+B is replaced by b, ensuring that each B on the stack is removed when we encounter its corresponding b in the input.
+
+Automaton Configuration:
+Before: (q, bα, B)
+B is on the stack and b is the first symbol in the input.
+After: (q, α, ε)
+We consume b from the input and remove B from the stack.
+
+# Rule 5
+If the stack and input string are simultaneously empty, this rule is applied to mark the string as valid.
+
+Sentential Form:
+The string is considered ε (empty), indicating a complete derivation.
+
+Automaton Configuration:
+Before: (q, ε, ε)
+Both the input and the stack are empty.
+After: (q, ε, ε)
+The string is accepted.
+
+
+
+Finally, if the string is accepted, a confirmation message is displayed. Otherwise, a rejection message is shown.
+
+The function imprimirTabla(filasTabla) is called, generating a table with three columns:
+
+-Applied Rule
+
+-Sentential Form (how the string evolves)
+
+-Automaton Configuration (q, input, stack)
