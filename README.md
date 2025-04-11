@@ -34,7 +34,6 @@ Required to compile and run the .java files.
 4.Terminal / Console:
 Terminal integrated in Visual Studio Code.
 Configured to support Unicode characters and ANSI colors, allowing to display tables and emojis correctly.
-Alternative: View it in replit
 
 5.ANSI Escape Codes:
 Used for: Coloring text 
