@@ -18,10 +18,6 @@ Create a folder for the project
 Load the 3 files with the algorithms and main
 Compile and run the program (In the terminal use the instruction java Main.java) 
 
-# Online Environment
-Open Replit at https://replit.com/ and create a new Java project.
-Load the 3 files with the algorithms and main
-Run the program and wait for the output.
 
 # Tools Used
 1. Programming Language:
